@@ -1,0 +1,16 @@
+<div id="overlay" class="overlay-cnt">
+  <div  class="wrapper">
+    <div class="header-cnt">
+      <h1>Voice recognition</h1>
+    </div>
+    <div class="controller-cnt">
+      <button style="margin: 10px;" (click)="startService()">Start</button>
+      <button style="margin: 10px;" (click)="stopService()">Stop</button>
+    </div>
+    <div class="result-cnt">
+      <!-- <p>{{voiceRecognitionServiceService.text}}</p> -->
+      <p>{{voice + speech}}</p>
+    </div>
+  </div>
+</div>
+

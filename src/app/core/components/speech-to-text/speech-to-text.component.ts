@@ -9,14 +9,14 @@ import { VoiceRecognitionServiceService } from '../../services/voice-recognition
 export class SpeechToTextComponent {
 
   constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService) {
-    this.voiceRecognitionServiceService.init();
+    // this.voiceRecognitionServiceService.init();
   }
 
   startService(){
-    this.voiceRecognitionServiceService.start()
+    this.voiceRecognitionServiceService.start();
   }
 
   stopService(){
-    this.voiceRecognitionServiceService.stop()
+    this.voiceRecognitionServiceService.stop();
   }
 }

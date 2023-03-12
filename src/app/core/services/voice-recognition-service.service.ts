@@ -12,6 +12,7 @@ export class VoiceRecognitionServiceService {
   recognition = new webkitSpeechRecognition();
   boo = false;
   isStoppedSpeechRecog = false;
+  isStartedSpeechRecog = false;
   public text = '';
   tempWords = '';
   speech: string = '';
@@ -69,6 +70,8 @@ export class VoiceRecognitionServiceService {
         }
       };
       this.recognition.start();
+      this.isStoppedSpeechRecog = false;
+      this.isStartedSpeechRecog = true;
       return () => this.recognition.abort();
     });
   }
@@ -88,6 +91,7 @@ export class VoiceRecognitionServiceService {
 
   stop() {
     this.isStoppedSpeechRecog = true;
+    this.isStartedSpeechRecog = false;
     this.wordConcat()
     this.recognition.stop();
     console.log("End speech recognition")

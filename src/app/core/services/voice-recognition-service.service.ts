@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { ChangeDetectorRef, Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 
 declare var webkitSpeechRecognition: any;
@@ -94,7 +94,7 @@ export class VoiceRecognitionServiceService {
     this.isStartedSpeechRecog = false;
     this.wordConcat()
     this.recognition.stop();
-    console.log("End speech recognition")
+    console.log("End speech recognition");
   }
 
   wordConcat() {

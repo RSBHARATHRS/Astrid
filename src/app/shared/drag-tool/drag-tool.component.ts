@@ -21,7 +21,6 @@ export class DragToolComponent {
 
   clickStart(){
     console.log('clickStart');
-
     this.start.emit(true);
     this.cdRef.detectChanges();
   }

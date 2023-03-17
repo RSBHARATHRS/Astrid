@@ -66,10 +66,11 @@ export class FormComponent {
         }
         else {
           this.speech = transcript;
-          console.log(this.selectedId, 'id12');
+          console.log(this.selectedId, 'selectedId');
           let test: any = document.getElementById(this.selectedId) as HTMLInputElement | null;
           console.log(test, 'idtest');
-          test.value = transcript;
+          test.value = transcript?.toLocaleLowerCase();
+          // test.value = "India";
         }
         this.cdRef.detectChanges();
       });

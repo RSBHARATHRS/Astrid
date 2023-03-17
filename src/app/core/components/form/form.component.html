@@ -5,28 +5,89 @@
       <p>Please fill in this form to create an account.</p>
       <hr>
 
-      <label for="email" id="vr-Question-email"><b>Email</b></label>
-      <input type="text" id="vr-ans-email" placeholder="Enter Email" name="email" required>
+      <div class="question">
+        <label for="email" id="vr-Question-email"><b>Email</b></label>
+        <input type="text" id="vr-ans-email" placeholder="Enter Email" name="email" required>
+      </div>
 
-      <label for="firstname" id="vr-Question-firstname"><b>First Name</b></label>
-      <input type="text" id="vr-ans-firstname" placeholder="First Name" name="firstname" required>
+      <div class="question">
+        <label for="firstname" id="vr-Question-firstname"><b>First Name</b></label>
+        <input type="text" id="vr-ans-firstname" placeholder="First Name" name="firstname" required>
+      </div>
 
-      <label for="lastname" id="vr-Question-lastname"><b>Last Name</b></label>
-      <input type="text" id="vr-ans-lastname" placeholder="Last Name" name="lastname" required>
+      <div class="question">
+        <label for="lastname" id="vr-Question-lastname"><b>Last Name</b></label>
+        <input type="text" id="vr-ans-lastname" placeholder="Last Name" name="lastname" required>
+      </div>
 
-      <label for="age" id="vr-Question-age"><b>Age</b></label>
-      <input type="text" id="vr-ans-age" placeholder="Age" name="age" required>
+      <div class="question">
+        <label for="age" id="vr-Question-age"><b>Age</b></label>
+        <input type="text" id="vr-ans-age" placeholder="Age" name="age" required>
+      </div>
 
-      <label for="psw" id="vr-Question-pws"><b>Password</b></label>
-      <input type="text" id="vr-ans-pws" placeholder="Password" name="psw" required>
+      <div class="question">
+        <label for="psw" id="vr-Question-pws"><b>Password</b></label>
+        <input type="text" id="vr-ans-pws" placeholder="Password" name="psw" required>
+      </div>
+
+      <div class="question">
+        <label for="nation"><b>nationality</b></label>
+        <select id="vr-ans-dropdown" id="nation" name="nation">
+          <option value="india">India</option>
+          <option value="afghan">Afghan</option>
+          <option value="albanian">Albanian</option>
+          <option value="algerian">Algerian</option>
+          <option value="american">American</option>
+          <option value="andorran">Andorran</option>
+          <option value="angolan">Angolan</option>
+          <option value="antiguans">Antiguans</option>
+          <option value="argentinean">Argentinean</option>
+          <option value="armenian">Armenian</option>
+          <option value="australian">Australian</option>
+          <option value="austrian">Austrian</option>
+          <option value="azerbaijani">Azerbaijani</option>
+          <option value="bahamian">Bahamian</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="nation"><b>Please select your favorite Web language:</b></label>
+        <br>
+        <div class="radio">
+          <input type="radio" id="html" name="fav_language" value="HTML">
+          <label for="html">HTML</label><br>
+          <input type="radio" id="css" name="fav_language" value="CSS">
+          <label for="css">CSS</label><br>
+          <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+          <label for="javascript">JavaScript</label><br>
+        </div>
+      </div>
+
+      <div class="question">
+        <label for="nation"><b>Please select your favorite Web language:</b></label>
+        <input type="range">
+      </div>
+
+      <div class="question">
+        <input type="time">
+      </div>
+      <!-- <input type="week"> -->
+
+      <div class="question">
+        <label for="nation"><b>Enter points (1 to 10):</b></label>
+        <input type="number" max="10">
+      </div>
+
+      <div class="question">
+        <label for="nation"><b>Pick your favourite color:</b></label>
+        <input type="color">
+      </div>
 
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
 
-      <p>By creating an account you agree to our <a
-          href="#"
-          style="color:dodgerblue">Terms & Privacy</a>.</p>
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
       <div class="clearfix">
         <button type="button" class="cancelbtn">Cancel</button>

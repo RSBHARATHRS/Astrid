@@ -25,7 +25,7 @@ export class VoiceRecognitionServiceService {
   init() {
     this.recognition.continuous = true;
     this.recognition.interimResults = true;
-    this.recognition.lang = 'en-US';
+    this.recognition.lang = 'en-IN';
     // this.recognition.addEventListener('result', (e: any) => {
     //   const transcript = Array.from<any>(e.results)
     //     .map((result) =>{

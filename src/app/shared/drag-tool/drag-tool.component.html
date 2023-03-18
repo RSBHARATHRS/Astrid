@@ -3,6 +3,6 @@
     <button style="margin: 10px;" (click)="clickStart()">Start</button>
     <button style="margin: 10px;" (click)="clickStop()">Stop</button>
   </div>
-  <img *ngIf="!voiceRecognitionServiceService.isStartedSpeechRecog" src="/assets/speech-icon.png">
-  <img *ngIf="voiceRecognitionServiceService.isStartedSpeechRecog" src="/assets/rec.png">
+  <img *ngIf="!isVRRcord" src="/assets/speech-icon.png">
+    <img *ngIf="isVRRcord" src="/assets/rec.png">
 </div>

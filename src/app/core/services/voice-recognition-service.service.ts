@@ -18,22 +18,25 @@ export class VoiceRecognitionServiceService {
   speech: string = '';
   voice = ''
 
-  constructor(private _ngZone: NgZone) { }
+  constructor(private _ngZone: NgZone) {
+    this.init();
+  }
 
-  // init() {
-  //   this.recognition.interimResults = true;
-  //   this.recognition.lang = 'en-US';
-  //   this.recognition.addEventListener('result', (e: any) => {
-  //     const transcript = Array.from<any>(e.results)
-  //       .map((result) =>{
-  //         console.log(result, "result")
-  //         return  result[0].transcript
-  //       })
-  //       .join('');
-  //     this.tempWords = transcript;
-  //     console.log(transcript);
-  //   });
-  // }
+  init() {
+    this.recognition.continuous = true;
+    this.recognition.interimResults = true;
+    this.recognition.lang = 'en-US';
+    // this.recognition.addEventListener('result', (e: any) => {
+    //   const transcript = Array.from<any>(e.results)
+    //     .map((result) =>{
+    //       console.log(result, "result")
+    //       return  result[0].transcript
+    //     })
+    //     .join('');
+    //   this.tempWords = transcript;
+    //   console.log(transcript);
+    // });
+  }
 
   start() {
     this.isStoppedSpeechRecog = false;
@@ -52,10 +55,12 @@ export class VoiceRecognitionServiceService {
 
   getTranscript({ locale = 'en-US' }: { locale?: string } = {}): Observable<string> {
     return new Observable(observer => {
-      this.recognition.continuous = true;
-      this.recognition.interimResults = true;
-      this.recognition.lang = locale;
-      this.recognition.onresult = (speechRecognitionEvent:any) => {
+      // this.recognition.continuous = true;
+      // this.recognition.interimResults = true;
+      // this.recognition.lang = locale;
+      this.recognition.onresult = (speechRecognitionEvent: any) => {
+        console.log(speechRecognitionEvent, "Speech");
+        // return;
         var interim_transcript = '';
         for (var i = speechRecognitionEvent.resultIndex; i < speechRecognitionEvent.results.length; ++i) {
           if (speechRecognitionEvent.results[i].isFinal) {
@@ -80,10 +85,9 @@ export class VoiceRecognitionServiceService {
     this.getTranscript()
       .subscribe(transcript => {
         if (transcript !== '' && this.boo) {
-          this.voice = this.voice + ' '+ transcript;
+          this.voice = this.voice + ' ' + transcript;
         }
-        else
-        {
+        else {
           this.speech = transcript;
         }
       });

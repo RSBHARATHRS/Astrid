@@ -5,7 +5,13 @@
   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.2),
     0 0px 0px 0px rgba(0, 0, 0, 0.14),
     0 0px 0px 0px rgba(0, 0, 0, 0.12);
-
+  align-items: center;
+  justify-content: center;
+  width: 96%;
+  display: flex;
+  .form-holder{
+    width: 60%;
+  };
   .container {
     .question {
       input[type=color] {

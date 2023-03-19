@@ -48,40 +48,41 @@
             <option value="austrian">Austrian</option>
             <option value="azerbaijani">Azerbaijani</option>
             <option value="bahamian">Bahamian</option>
+            <option value="westindian">west Indian</option>
           </select>
         </div>
 
         <div class="question">
-          <label for="nation"><b>Please select your favorite Web language:</b></label>
+          <label for="nation"  id="vr-Question-language"><b>Please select your favorite Web language:</b></label>
           <br>
           <div class="radio">
-            <input type="radio" id="html" name="fav_language" value="HTML">
-            <label for="html">HTML</label><br>
-            <input type="radio" id="css" name="fav_language" value="CSS">
-            <label for="css">CSS</label><br>
-            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-            <label for="javascript">JavaScript</label><br>
+            <input type="radio" id="vr-ans-language-html" name="fav_language" value="HTML">
+            <label for="vr-ans-language-html">HTML</label><br>
+            <input type="radio" id="vr-ans-language-css" name="fav_language" value="CSS">
+            <label for="vr-ans-language-css">CSS</label><br>
+            <input type="radio" id="vr-ans-language-javascript" name="fav_language" value="JavaScript">
+            <label for="vr-ans-language-javascript">JavaScript</label><br>
           </div>
         </div>
 
-        <div class="question">
-          <label for="nation"><b>Please select your favorite Web language:</b></label>
-          <label class="chk-container">One
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label>
-          <label class="chk-container">Two
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="chk-container">Three
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="chk-container">Four
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
+        <div class="question" id="vr-div-subject">
+          <label for="nation"><b>Please select your favorite subject:</b></label><br>
+          <label for="vr-ans-subject-1">Computer Science </label>
+            <input type="checkbox" id="vr-ans-subject-1">
+            <span class="checkmark"></span><br>
+
+          <label  for="vr-ans-subject-2">Accounts</label>
+            <input type="checkbox" id="vr-ans-subject-2">
+            <span class="checkmark"></span><br>
+
+          <label for="vr-ans-subject-3">Arts </label>
+            <input type="checkbox" id="vr-ans-subject-3">
+            <span class="checkmark"></span><br>
+
+          <label for="vr-ans-subject-4">Bussiness </label>
+            <input type="checkbox" id="vr-ans-subject-4">
+            <span class="checkmark"></span><br>
+
         </div>
 
 
@@ -91,7 +92,9 @@
         </div>
 
         <div class="question">
-          <input type="time" id="vr-ans-time">
+          <!-- <input type="time" id="vr-ans-time"> -->
+          <label for="vr-ans-birthdaytime">Birthday (date and time):</label>
+          <input type="datetime-local" id="vr-ans-birthdaytime" name="birthdaytime">
         </div>
         <!-- <input type="week"> -->
 

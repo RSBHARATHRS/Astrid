@@ -33,6 +33,10 @@ export class DragToolComponent {
     this.cdRef.detectChanges();
   }
 
+  openMicTestingTool() {
+
+  }
+
   openSettings() {
 
   }

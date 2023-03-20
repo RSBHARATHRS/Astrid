@@ -7,10 +7,14 @@ import { FeaturesModule } from './features/features.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { SettingsComponent } from './components/settings/settings.component';
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SettingsComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

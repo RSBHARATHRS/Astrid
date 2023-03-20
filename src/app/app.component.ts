@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, NgZone } from '@angular/core';
-import { Observable } from 'rxjs';
 import { VoiceRecognitionServiceService } from './services/voice-recognition-service.service';
 
 @Component({
@@ -35,7 +34,9 @@ export class AppComponent {
   selectedId = '';
   isVRStart: boolean = false;
 
-  constructor(private _ngZone: NgZone, public voiceRecognitionServiceService: VoiceRecognitionServiceService, private cdRef: ChangeDetectorRef) {
+  constructor(private _ngZone: NgZone,
+    public voiceRecognitionServiceService: VoiceRecognitionServiceService,
+    private cdRef: ChangeDetectorRef) {
 
   }
 
@@ -146,8 +147,6 @@ export class AppComponent {
         let test: any = document.getElementById(radios[i].id) as HTMLInputElement | null;
         test.checked = true;
       }
-      //var text = label.innerHTML;
-      // do stuff
     }
   }
 
@@ -157,7 +156,6 @@ export class AppComponent {
     console.log(value, 'value123');
     for (var i = 0; i < options.length; i++) {
       let ele = options[i];
-      // options.forEach((ele:any) => {
       let matchPer = stringSimilarity.compareTwoStrings(value, ele.textContent?.toLocaleLowerCase());
       console.log(ele.textContent, '-', value, 'txcont');
       console.log(matchPer, 'txvalue');
@@ -167,8 +165,6 @@ export class AppComponent {
         test.value = ele.value;
       }
     }
-    // });
-
   }
 
   cancel() {

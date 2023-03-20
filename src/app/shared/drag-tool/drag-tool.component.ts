@@ -32,4 +32,12 @@ export class DragToolComponent {
     this.stop.emit(true);
     this.cdRef.detectChanges();
   }
+
+  openSettings() {
+
+  }
+
+  info() {
+
+  }
 }

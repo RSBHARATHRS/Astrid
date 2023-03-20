@@ -13,6 +13,7 @@
   position: relative;
   z-index: 1;
   transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+
   // box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
   //             0 2px 2px 0 rgba(0, 0, 0, 0.14),
   //             0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -21,7 +22,7 @@
     width: 100%;
     height: 100%;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 10px;
     border: 1px orange;
 
     &:hover {
@@ -52,12 +53,17 @@
   /* webkit flicker fix */
   -webkit-font-smoothing: antialiased;
   /* webkit text rendering fix */
+  .trag-icon-cnt{
+    cursor: move;
+  }
 
   .tooltip {
     background: #1496bb;
     bottom: 100%;
     color: #fff;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin-bottom: 15px;
     opacity: 0;
     pointer-events: none;
@@ -79,16 +85,19 @@
     -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
     -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    button{
-      padding: 10px;
-      font-size: large;
-      border: 0px;
-      border-radius: 10px;
-      &:hover{
-        background-color: rgb(7, 105, 32);
-        color: white;
-      }
-    }
+
+    // button {
+    //   padding: 10px;
+    //   font-size: large;
+    //   border: 0px;
+    //   border-radius: 10px;
+
+    //   &:hover {
+    //     background-color: rgb(7, 105, 32);
+    //     color: white;
+    //   }
+    // }
+
     /* This bridges the gap so you can mouse into the tooltip without it disappearing */
     &:before {
       bottom: -20px;
@@ -112,6 +121,14 @@
       position: absolute;
       width: 0;
     }
+
+    .start-stop, .settings{
+      cursor: pointer;
+    }
+
+    .info{
+      cursor: help;
+    }
   }
 }
 
@@ -126,10 +143,10 @@
 }
 
 /* IE can just show/hide with no transition */
-.lte8 .wrapper .tooltip {
-  display: none;
-}
+// .lte8 .wrapper .tooltip {
+//   display: none;
+// }
 
-.lte8 .wrapper:hover .tooltip {
-  display: block;
-}
+// .lte8 .wrapper:hover .tooltip {
+//   display: block;
+// }

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, EventEmitter, Input } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component } from '@angular/core';
-import { VoiceRecognitionServiceService } from 'src/app/core/services/voice-recognition-service.service';
+import { VoiceRecognitionServiceService } from 'src/app/services/voice-recognition-service.service';
 
 @Component({
   selector: 'app-drag-tool',

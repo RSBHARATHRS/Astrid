@@ -1,30 +1,43 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeaturesModule } from './features/features.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
+
 import { SettingsComponent } from './components/settings/settings.component';
 import { InfoComponent } from './components/info/info.component';
+import { DragToolComponent } from './components/drag-tool/drag-tool.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormComponent } from './components/form/form.component';
+import { FormsModule } from '@angular/forms';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DragToolComponent,
     SettingsComponent,
-    InfoComponent
+    InfoComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FeaturesModule,
     BrowserAnimationsModule,
-    //CoreModule,
-    SharedModule
+    DragDropModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [],
+  entryComponents: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(private injector: Injector) {
+    const customElement = createCustomElement(AppComponent, { injector: this.injector });
+    customElements.define('voice-reg-tool', customElement);
+  }
+
+  ngDoBootstrap() {
+
+  }
+}

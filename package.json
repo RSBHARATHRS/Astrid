@@ -6,7 +6,13 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:dev": "ng build --configuration develop --output-hashing=none",
+    "build:stg": "ng build --configuration stage",
+    "concat:dev": "node concat-script.js idp-speech-to-text 070223 dev",
+    "build:element:dev": "ng build --configuration develop --output-hashing=none && node concat-script.js idp-speech-to-text 070223 dev",
+    "build:element:stg": "ng build --configuration stage --output-hashing=none && node concat-script.js idp-speech-to-text 070223 stg",
+    "build:element:prod": "ng build --configuration production --output-hashing=none && node concat-script.js idp-speech-to-text 070223"
   },
   "private": true,
   "dependencies": {

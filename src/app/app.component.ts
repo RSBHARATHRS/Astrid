@@ -10,6 +10,8 @@ import { VoiceRecognitionServiceService } from './services/voice-recognition-ser
 
 export class AppComponent {
 
+  dragPosition = {x: 0, y: 0};
+
   @HostListener('window:click', ['$event'])
   clickout(event: any) {
     console.log(event, 'event12');

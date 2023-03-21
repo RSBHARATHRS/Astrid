@@ -1,4 +1,4 @@
-<div class="example-box wrapper" cdkDrag>
+<div class="example-box wrapper drag" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
   <div class="tooltip">
     <div class="start-stop">
       <img *ngIf="!isVRRcord" src="/assets/play.png" alt="start" (click)="clickStart()">

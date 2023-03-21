@@ -12,6 +12,9 @@ import { VoiceRecognitionServiceService } from 'src/app/services/voice-recogniti
 export class DragToolComponent {
 
   @Input() isVRRcord: boolean = false;
+  @Input() dragPosition: any = {x: 0, y: 0};
+
+
   @Output() start = new EventEmitter<boolean>();
   @Output() stop = new EventEmitter<boolean>();
 
@@ -19,7 +22,6 @@ export class DragToolComponent {
     private cdRef: ChangeDetectorRef) {
 
   }
-
 
   clickStart(){
     console.log('clickStart');

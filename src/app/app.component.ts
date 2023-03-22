@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, NgZone } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RecognitionTesterComponent } from './components/recognition-tester/recognition-tester.component';
+import { SettingsComponent } from './components/settings/settings.component';
 import { VoiceRecognitionServiceService } from './services/voice-recognition-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
@@ -38,6 +40,7 @@ export class AppComponent {
 
   constructor(private _ngZone: NgZone,
     public voiceRecognitionServiceService: VoiceRecognitionServiceService,
+    public dialog: MatDialog,
     private cdRef: ChangeDetectorRef) {
 
   }
@@ -169,11 +172,27 @@ export class AppComponent {
     }
   }
 
-  cancel() {
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+
+  openDialogAni(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100'): void {
+    this.dialog.open(SettingsComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
-  signUp() {
-
+  openMicTestingTool(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
+    this.dialog.open(RecognitionTesterComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }

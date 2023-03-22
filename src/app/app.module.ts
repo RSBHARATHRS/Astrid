@@ -11,6 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormComponent } from './components/form/form.component';
 import { FormsModule } from '@angular/forms';
 import { createCustomElement } from '@angular/elements';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { createCustomElement } from '@angular/elements';
     BrowserModule,
     BrowserAnimationsModule,
     DragDropModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [],

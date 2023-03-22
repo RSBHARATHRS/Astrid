@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-settings',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class SettingsComponent {
 
+  constructor(public dialogRef: MatDialogRef<SettingsComponent>) {
+
+  }
+
+  saveSettings() {
+    this.dialogRef.close();
+  }
 }

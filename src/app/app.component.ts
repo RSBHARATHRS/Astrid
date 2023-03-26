@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, NgZone } from '@angular/core';
+import { Component, HostListener, NgZone } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RecognitionTesterComponent } from './components/recognition-tester/recognition-tester.component';
 import { SettingsComponent } from './components/settings/settings.component';
@@ -16,16 +16,17 @@ export class AppComponent {
 
   @HostListener('window:click', ['$event'])
   clickout(event: any) {
-    console.log(event, 'event12');
+    console.log('window:click :', event);
     this.selectIdByEvent(event);
   }
 
-  @HostListener('keyup', ['$event'])
-  onKeyDown(e: any) {
-    if ((e.shiftKey && e.keyCode == 9) || e.keyCode == 9) {
+  @HostListener('document:keyup', ['$event'])
+  onKeyDown(event: any) {
+    console.log("keyup: ", event)
+    if ((event.shiftKey && event.keyCode == 9) || event.keyCode == 9) {
       console.log('shift and tab');
-      this.selectIdByEvent(e);
-    } else if (e.keyCode == 27) {
+      this.selectIdByEvent(event);
+    } else if (event.keyCode == 27) { // 27 = Escape
       this.isVRStart = !this.isVRStart;
       this.isVRStart ? this.startService() : this.stopService();
     }
@@ -40,8 +41,7 @@ export class AppComponent {
 
   constructor(private _ngZone: NgZone,
     public voiceRecognitionServiceService: VoiceRecognitionServiceService,
-    public dialog: MatDialog,
-    private cdRef: ChangeDetectorRef) {
+    public dialog: MatDialog) {
 
   }
 
@@ -49,7 +49,7 @@ export class AppComponent {
     let element = event.target || event.srcElement || event.currentTarget;
     // Get the id of the source element
     let elementId = element.id;
-    console.log(elementId, 'elementId');
+    console.log("active element ID:", elementId);
     if (elementId.startsWith('vr-ans')) {
       this.selectedId = elementId;
     }
@@ -77,9 +77,6 @@ export class AppComponent {
           console.log(this.selectedId, 'selectedId');
           let inputElement: any = document.getElementById(this.selectedId) as HTMLInputElement | null;
           console.log(inputElement?.parentElement.id, 'idtest');
-          // console.log(test?.options,'options123');
-          // console.log(test?.options?.value,'options123456');
-          //console.log(test?.options?.textContent,'options123456');
           if (inputElement.type == "select-one") {
             this.selectDropDownValue(inputElement?.options, transcript?.toLocaleLowerCase())
           } else if (inputElement.type == "radio") {
@@ -95,7 +92,6 @@ export class AppComponent {
             inputElement.value = transcript?.toLocaleLowerCase();
           }
         }
-        this.cdRef.detectChanges();
       });
   }
 
@@ -117,14 +113,12 @@ export class AppComponent {
   }
 
   selectCheckBoxValue(parentId: any, value: any) {
-    // console.log(parentId,'parentId');
-    var stringSimilarity = require("string-similarity");
-    var itemForm: any = document.getElementById(parentId) as HTMLInputElement | null;; // getting the parent container of all the checkbox inputs
-    var checkBoxes = itemForm.querySelectorAll('input[type="checkbox"]');
-    // console.log(checkBoxes,'checkBoxes');
-    for (var i = 0; i < checkBoxes.length; i++) {
-      var selector = 'label[for=' + checkBoxes[i].id + ']';
-      var label: any = document.querySelector(selector) as HTMLInputElement | null;
+    let stringSimilarity = require("string-similarity");
+    let itemForm: any = document.getElementById(parentId) as HTMLInputElement | null;; // getting the parent container of all the checkbox inputs
+    let checkBoxes = itemForm.querySelectorAll('input[type="checkbox"]');
+    for (let i = 0; i < checkBoxes.length; i++) {
+      let selector = 'label[for=' + checkBoxes[i].id + ']';
+      let label: any = document.querySelector(selector) as HTMLInputElement | null;
       // console.log(label.innerHTML,'innerHTML');
       let matchPer = stringSimilarity.compareTwoStrings(value, label.innerHTML?.toLocaleLowerCase());
       console.log(label.innerHTML?.toLocaleLowerCase(), '-', value, '-', matchPer, 'txcont');

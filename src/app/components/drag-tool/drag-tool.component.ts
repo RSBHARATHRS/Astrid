@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, EventEmitter, Input } from '@angular/core';
+import { EventEmitter, Input, ViewEncapsulation } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,6 +10,7 @@ import { RecognitionTesterComponent } from '../recognition-tester/recognition-te
   templateUrl: './drag-tool.component.html',
   styleUrls: ['./drag-tool.component.scss'],
 })
+
 export class DragToolComponent {
 
   @Input() isVRRcord: boolean = false;

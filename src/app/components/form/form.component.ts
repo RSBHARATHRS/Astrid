@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { VoiceRecognitionServiceService } from 'src/app/services/voice-recognition-service.service';
 
 @Component({
@@ -8,8 +8,7 @@ import { VoiceRecognitionServiceService } from 'src/app/services/voice-recogniti
 })
 export class FormComponent {
 
-  constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService,
-    private cdRef: ChangeDetectorRef) {
+  constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService) {
   }
 
   // cancel() {

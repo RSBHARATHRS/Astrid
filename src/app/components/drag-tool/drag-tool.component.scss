@@ -50,8 +50,9 @@
   -webkit-transform: translateZ(0);
   /* webkit flicker fix */
   -webkit-font-smoothing: antialiased;
+
   /* webkit text rendering fix */
-  .trag-icon-cnt{
+  .trag-icon-cnt {
     cursor: move;
   }
 
@@ -120,11 +121,12 @@
       width: 0;
     }
 
-    .start-stop, .settings{
+    .start-stop,
+    .settings {
       cursor: pointer;
     }
 
-    .info{
+    .info {
       cursor: help;
     }
   }
@@ -148,7 +150,7 @@
 // .lte8 .wrapper:hover .tooltip {
 //   display: block;
 // }
-.drag{
+.drag {
   position: sticky;
   top: 0;
 }

@@ -9,6 +9,7 @@ import { RecognitionTesterComponent } from '../recognition-tester/recognition-te
   selector: 'app-drag-tool',
   templateUrl: './drag-tool.component.html',
   styleUrls: ['./drag-tool.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 
 export class DragToolComponent {

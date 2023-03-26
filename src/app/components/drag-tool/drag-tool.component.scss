@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .example-box {
   width: 80px;
   height: 80px;
@@ -150,7 +156,8 @@
 // .lte8 .wrapper:hover .tooltip {
 //   display: block;
 // }
-.drag {
-  position: sticky;
-  top: 0;
+
+.wrapper{
+  position: absolute;
+  z-index: 100;
 }

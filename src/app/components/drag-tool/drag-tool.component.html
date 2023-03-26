@@ -1,22 +1,25 @@
-<div class="example-box wrapper drag" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
-  <div class="tooltip">
-    <div class="start-stop">
-      <img *ngIf="!isVRRcord" src="/assets/play.png" alt="start" (click)="clickStart()">
-      <img *ngIf="isVRRcord" src="/assets/stop.png" alt="stop" (click)="clickStop()">
+<div class="wrapper">
+  <div class="example-box wrapper drag" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
+    <div class="tooltip">
+      <div class="start-stop">
+        <img *ngIf="!isVRRcord" src="/assets/play.png" alt="start" (click)="clickStart()">
+        <img *ngIf="isVRRcord" src="/assets/stop.png" alt="stop" (click)="clickStop()">
+      </div>
+      <div class="mic-testing">
+        <img src="/assets/microphone.png" alt="mic-testing" (click)="openMicTestingTool()">
+      </div>
+      <div class="settings">
+        <img src="/assets/setting.png" alt="settings" (click)="openSettings()">
+      </div>
+      <div class="info">
+        <img src="/assets/info.png" alt="info" (click)="openInfo()">
+      </div>
     </div>
-    <div class="mic-testing">
-      <img src="/assets/microphone.png" alt="mic-testing" (click)="openMicTestingTool()">
+    <!-- trg icon -->
+    <div class="trag-icon-cnt">
+      <img *ngIf="!isVRRcord" src="/assets/speech-icon.png">
+      <img *ngIf="isVRRcord" src="/assets/rec.png">
     </div>
-    <div class="settings">
-      <img src="/assets/setting.png" alt="settings" (click)="openSettings()">
-    </div>
-    <div class="info">
-      <img src="/assets/info.png" alt="info" (click)="openInfo()">
-    </div>
-  </div>
-  <!-- trg icon -->
-  <div class="trag-icon-cnt">
-    <img *ngIf="!isVRRcord" src="/assets/speech-icon.png">
-    <img *ngIf="isVRRcord" src="/assets/rec.png">
   </div>
 </div>
+

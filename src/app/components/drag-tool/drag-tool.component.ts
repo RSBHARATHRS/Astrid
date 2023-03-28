@@ -17,10 +17,10 @@ export class DragToolComponent implements OnInit {
   @Input() isVRRcord: boolean = false;
   @Input() dragPosition: any = { x: 0, y: 0 };
 
-  height: number = 50;
-  width: number = 50;
+  height = 50;
+  width = 50;
 
-  updatedValue: number = 10;
+  updatedValue = 10;
 
   @Output() start = new EventEmitter<boolean>();
   @Output() stop = new EventEmitter<boolean>();
@@ -41,7 +41,6 @@ export class DragToolComponent implements OnInit {
   }
 
   clickStart() {
-    console.log('clickStart');
     this.start.emit(true);
   }
 
@@ -52,7 +51,6 @@ export class DragToolComponent implements OnInit {
   openSettings() {
     this.openSettingsEvent.emit();
   }
-
 
   openMicTestingTool() {
     const dialogRef = this.dialog.open(RecognitionTesterComponent);

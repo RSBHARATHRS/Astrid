@@ -1,10 +1,34 @@
 <div class="settings-cnt">
-    <div class="header-section">
-      <h2>Settings</h2>
-    </div>
-    <div class="preference" [formGroup]="settingsForm">
+  <div class="header-section">
+    <h2>Settings</h2>
+  </div>
+
+  <form [formGroup]="settingsForm">
+    <div class="preference">
       <p>Icon size</p>
       <input type="range" id="icon_range" formControlName="size">
     </div>
-    <button (click)="saveSettings()">Save</button>
+
+    <div class="preference">
+      <label for="lang" id="vr-Question-dropdown"><b>Language</b></label>
+      <select id="vr-ans-dropdown" name="lang" formControlName="lang">
+        <option *ngFor="let lang of languages" [value]="lang[1]">{{lang[1]}}</option>
+      </select>
+    </div>
+
+    <div class="preference">
+      <label for="subLang" id="vr-dropdown"><b>Sub language</b></label>
+
+      <ng-container *ngIf="settingsForm?.value?.lang">
+        <select id="vr-ans-dropdown" name="subLang" formControlName="subLang">
+          <option *ngFor="let subLang of settingsForm?.value?.lang" value="subLang">{{subLang}}</option>
+        </select>
+      </ng-container>
+
+
+    </div>
+
+  </form>
+
+  <button (click)="saveSettings()">Save</button>
 </div>

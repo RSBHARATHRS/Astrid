@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="example-box wrapper drag" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
+  <div [style.width.px]="width + updatedValue" [style.height.px]="height + updatedValue" class="example-box wrapper drag"  cdkDrag [cdkDragFreeDragPosition]="dragPosition">
     <div class="tooltip">
       <div class="start-stop">
         <img *ngIf="!isVRRcord" src="/assets/play.png" alt="start" (click)="clickStart()">
@@ -12,7 +12,7 @@
         <img src="/assets/setting.png" alt="settings" (click)="openSettings()">
       </div>
       <div class="info">
-        <img src="/assets/info.png" alt="info" (click)="openInfo()">
+        <img src="/assets/info.png" alt="info" (click)="openInfo.emit()">
       </div>
     </div>
     <!-- trg icon -->

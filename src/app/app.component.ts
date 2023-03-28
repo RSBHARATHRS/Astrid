@@ -1,5 +1,6 @@
 import { Component, HostListener, NgZone } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { InfoComponent } from './components/info/info.component';
 import { RecognitionTesterComponent } from './components/recognition-tester/recognition-tester.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { VoiceRecognitionServiceService } from './services/voice-recognition-service.service';
@@ -166,13 +167,13 @@ export class AppComponent {
     }
   }
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
+  openInfo(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
+    this.dialog.open(InfoComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 
   openDialogAni(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100'): void {
     this.dialog.open(SettingsComponent, {

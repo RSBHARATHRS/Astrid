@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Injectable, NgZone } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 declare var webkitSpeechRecognition: any;
 
@@ -16,7 +16,9 @@ export class VoiceRecognitionServiceService {
   public text = '';
   tempWords = '';
   speech: string = '';
-  voice = ''
+  voice = '';
+
+  settings: Subject<any> = new Subject();
 
   constructor(private _ngZone: NgZone) {
     this.init();

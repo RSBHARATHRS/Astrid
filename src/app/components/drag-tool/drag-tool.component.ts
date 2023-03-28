@@ -1,4 +1,4 @@
-import { EventEmitter, Input, ViewEncapsulation } from '@angular/core';
+import { EventEmitter, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,58 +12,50 @@ import { RecognitionTesterComponent } from '../recognition-tester/recognition-te
   encapsulation: ViewEncapsulation.ShadowDom
 })
 
-export class DragToolComponent {
+export class DragToolComponent implements OnInit {
 
   @Input() isVRRcord: boolean = false;
-  @Input() dragPosition: any = {x: 0, y: 0};
+  @Input() dragPosition: any = { x: 0, y: 0 };
 
+  height: number = 50;
+  width: number = 50;
+
+  updatedValue: number = 10;
 
   @Output() start = new EventEmitter<boolean>();
   @Output() stop = new EventEmitter<boolean>();
   @Output() openSettingsEvent = new EventEmitter<any>();
   @Output() openTestingToolEvent = new EventEmitter<any>();
-  @Output() openInfoEvent = new EventEmitter<any>();
+  @Output() openInfo = new EventEmitter<any>();
 
   constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService,
-    public dialog: MatDialog,) {
+    public dialog: MatDialog) {
 
   }
 
-  clickStart(){
+  ngOnInit(): void {
+    this.updatedValue = JSON.parse(localStorage.getItem("settings")!)?.size;
+    this.voiceRecognitionServiceService.settings.subscribe((value)=>{
+      this.updatedValue = value?.size;
+    })
+  }
+
+  clickStart() {
     console.log('clickStart');
     this.start.emit(true);
-    // this.cdRef.detectChanges();
   }
 
-  clickStop(){
-
+  clickStop() {
     this.stop.emit(true);
-    // this.cdRef.detectChanges();
   }
-
-  // openMicTestingTool() {
-  //   this.openTestingToolEvent.emit();
-  // }
 
   openSettings() {
     this.openSettingsEvent.emit();
   }
 
-  openInfo() {
-    this.openInfoEvent.emit();
-  }
-
-  // openMicTestingTool(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
-  //   this.dialog.open(RecognitionTesterComponent, {
-  //     width: '10px',
-  //     enterAnimationDuration,
-  //     exitAnimationDuration,
-  //   });
-  // }
 
   openMicTestingTool() {
     const dialogRef = this.dialog.open(RecognitionTesterComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

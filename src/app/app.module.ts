@@ -9,7 +9,7 @@ import { InfoComponent } from './components/info/info.component';
 import { DragToolComponent } from './components/drag-tool/drag-tool.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormComponent } from './components/form/form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { createCustomElement } from '@angular/elements';
 import {MatDialogModule} from '@angular/material/dialog';
 
@@ -26,7 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     DragDropModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [],

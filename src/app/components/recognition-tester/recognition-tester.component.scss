@@ -1,6 +1,5 @@
 #overlay {
-  min-width: 380px;
-  width: 450px;
+  min-width: 480px;
   opacity: 100%;
   cursor: pointer;
   display: flex;
@@ -24,14 +23,35 @@
       justify-content: center;
     }
 
+    .error-cnt {
+      p {
+        font-weight: 500;
+        font-size: medium;
+        color: red;
+      }
+    }
+
     .controller-cnt {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
 
+      @media screen and (max-width: 666px) {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       div {
         margin: 0 5px 0 5px;
+
+        @media screen and (max-width: 666px) {
+          display: flex;
+          justify-content: flex-start;
+          width: 100%;
+          margin: 10px 0 10px 0;
+        }
 
         select {
           padding: 4px;
@@ -50,6 +70,10 @@
           color: white;
         }
       }
+    }
+
+    .info{
+      color: rgb(39, 36, 36);
     }
 
     .result-cnt {

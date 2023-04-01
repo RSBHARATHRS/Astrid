@@ -6,29 +6,44 @@
   justify-content: center;
   width: 100%;
 
+  .error-cnt {
+    p {
+      font-weight: 500;
+      font-size: medium;
+      color: red;
+    }
+  }
+
   form {
     .preference {
       margin: 12px 0 12px 0;
       display: flex;
       justify-content: space-between;
-      .range-wrapper{
+
+      // flex-wrap: wrap;
+      .range-wrapper {
         width: 100%;
         min-width: 220px;
         display: flex;
         flex-direction: row;
+
         b {
           padding: 10px;
           font-size: medium;
           margin-bottom: 0;
         }
       }
+
       label {
         min-width: 160px;
       }
-      input, select{
+
+      input,
+      select {
         width: 100%;
         min-width: 220px;
       }
+
       select {
         background-color: rgba(0, 0, 0, 0.2);
         color: rgb(15, 15, 15);
@@ -36,6 +51,7 @@
         font-weight: 200;
       }
     }
+
     .preference:last-child {
       margin-bottom: 26px;
     }
@@ -53,6 +69,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  @media screen and (max-width: 666px) {
+    flex-wrap: wrap;
+  }
 }
 
 .container .btn {

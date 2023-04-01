@@ -1,27 +1,40 @@
 <div id="overlay" class="overlay-cnt bg">
   <div class="wrapper">
+
     <div class="header-cnt">
       <h1>Voice recognition testing tool</h1>
     </div>
-    <div class="controller-cnt">
-      <div class="preference">
-        <label for="lang" id="vr-Question-dropdown"><b>Language: </b></label>
-        <select id="vr-ans-dropdown" name="lang" formControlName="lang">
-          <option *ngFor="let lang of supportedLanguage" [value]="lang?.id">{{lang?.lang}}</option>
-        </select>
-      </div>
 
-      <div class="preference">
-        <label for="subLang" id="vr-dropdown"><b>Accuracy: </b></label>
-        <ng-container>
-          <select id="vr-ans-dropdown" name="subLang">
-            <option value="subLang" *ngFor="let subLang of supportedRegion">subLang</option>
+    <!-- <div class="error-cnt">
+      <p *ngIf="settingsForm.invalid && isPlayClicked">Please select a language</p>
+    </div> -->
+
+    <div class="controller-cnt">
+      <ng-container [formGroup]="settingsForm">
+        <div class="preference">
+          <label for="lang" id="vr-Question-dropdown"><b>Language: </b></label>
+          <select id="vr-ans-dropdown" name="lang" formControlName="lang">
+            <option *ngFor="let lang of supportedLanguage" [value]="lang?.id">{{lang?.lang}}</option>
           </select>
-        </ng-container>
-      </div>
+        </div>
+
+        <div class="preference">
+          <label for="subLang" id="vr-dropdown"><b>Region: </b></label>
+          <select id="vr-ans-dropdown" name="subLang" formControlName="subLang">
+            <!-- <option value="">Please select</option> -->
+            <option value="subLang" *ngFor="let subLang of supportedRegion" [value]="subLang?.code">{{subLang?.display}}
+            </option>
+          </select>
+        </div>
+      </ng-container>
+
       <img *ngIf="!isVRStarted" src="/assets/play.png" alt="start" (click)="startService()">
       <img *ngIf="isVRStarted" src="/assets/stop.png" alt="stop" (click)="stopService()">
     </div>
+
+
+    <p class="info">Testing will also update the settings*</p>
+
     <div class="result-cnt">
       <!-- <p class="speech">{{ speech}}</p>
       <hr>

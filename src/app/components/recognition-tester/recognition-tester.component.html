@@ -1,4 +1,4 @@
-<div id="overlay" class="overlay-cnt" cdkDrag>
+<div id="overlay" class="overlay-cnt bg">
   <div class="wrapper">
     <div class="header-cnt">
       <h1>Voice recognition testing tool</h1>
@@ -12,5 +12,6 @@
       <hr>
       <p class="voice">{{ voice }}</p>
     </div>
+    <button (click)="dialogRef.close()">Close</button>
   </div>
 </div>

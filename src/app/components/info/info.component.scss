@@ -1,12 +1,54 @@
-.info-cnt{
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+  --body-font: "Poppins", sans-serif;
+  --hover-menu-bg: rgba(12 15 25 / 30%);
+  --content-title-color: #999ba5;
+  --content-bg: rgb(146 151 179 / 13%);
+  --button-inactive: rgb(249 250 251 / 55%);
+  --dropdown-bg: #21242d;
+  --dropdown-hover: rgb(42 46 60);
+  --popup-bg: rgb(22 25 37);
+  --search-bg: #14162b;
+  --overlay-bg: rgba(36, 39, 59, 0.3);
+  --scrollbar-bg: rgb(1 2 3 / 40%);
+}
+
+.info-cnt {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
-  button{
+
+  // background: transparent;
+  // border: 1px solid var(--theme-bg-color);
+  // backdrop-filter: blur(6px);
+  // background-color:  var(--theme-bg-color);
+  // opacity: 0.5;
+  button {
     width: 60%;
     padding: 10px;
     margin: 10px;
   }
+}
+
+.gradient-bg {
+  background: linear-gradient(180deg, #ff7147, #e0417f);
+  padding: 0.5rem 1.5rem;
+  transition: all 0.1s ease-out;
+  font-weight: 500;
+  font-size: 1.25rem;
+  border-radius: 100px;
+  transform: scale(1);
+  margin: 0 0 2rem 1rem;
+}
+
+
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
 }

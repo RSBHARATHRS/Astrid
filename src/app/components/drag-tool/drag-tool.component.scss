@@ -1,3 +1,22 @@
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --theme-color: #f9fafb;
+  --inactive-color: rgb(113 119 144 / 78%);
+  --body-font: "Poppins", sans-serif;
+  --hover-menu-bg: rgba(12 15 25 / 30%);
+  --content-title-color: #999ba5;
+  --content-bg: rgb(146 151 179 / 13%);
+  --button-inactive: rgb(249 250 251 / 55%);
+  --dropdown-bg: #21242d;
+  --dropdown-hover: rgb(42 46 60);
+  --popup-bg: rgb(22 25 37);
+  --search-bg: #14162b;
+  --overlay-bg: rgba(36, 39, 59, 0.3);
+  --scrollbar-bg: rgb(1 2 3 / 40%);
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -7,47 +26,33 @@
 .example-box {
   width: 80px;
   height: 80px;
-  // border: solid 1px #ccc;
-  // color: rgba(0, 0, 0, 0.87);
   cursor: move;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  // background: #fff;
   border-radius: 4px;
   position: relative;
   z-index: 1;
   transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
 
-  // box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-  //             0 2px 2px 0 rgba(0, 0, 0, 0.14),
-  //             0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
   img {
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
     border: 1px orange;
 
     &:hover {
-      background-color: rgb(226, 216, 198);
-      color: white;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
   }
 }
 
-// .example-box:active {
-//   box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.2),
-//               0 0px 0px 0px rgba(0, 0, 0, 0.14),
-//               0 0px 0px 0px rgba(0, 0, 0, 0.12);
-// }
-
 .wrapper {
   text-transform: uppercase;
-  // background: #ececec;
-  // color: #555;
   cursor: help;
   font-family: "Gill Sans", Impact, sans-serif;
   font-size: 20px;
@@ -63,7 +68,6 @@
   }
 
   .tooltip {
-    background: #1496bb;
     bottom: 100%;
     color: #fff;
     display: flex;
@@ -91,17 +95,10 @@
     -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
 
-    // button {
-    //   padding: 10px;
-    //   font-size: large;
-    //   border: 0px;
-    //   border-radius: 10px;
-
-    //   &:hover {
-    //     background-color: rgb(7, 105, 32);
-    //     color: white;
-    //   }
-    // }
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    backdrop-filter: blur(6px);
+    background-color: var(--theme-bg-color);
 
     /* This bridges the gap so you can mouse into the tooltip without it disappearing */
     &:before {
@@ -117,7 +114,7 @@
     &:after {
       border-left: solid transparent 10px;
       border-right: solid transparent 10px;
-      border-top: solid #1496bb 10px;
+      border-top: solid var(--theme-bg-color) 10px;
       bottom: -10px;
       content: " ";
       height: 0;
@@ -148,16 +145,7 @@
   transform: translateY(0px);
 }
 
-/* IE can just show/hide with no transition */
-// .lte8 .wrapper .tooltip {
-//   display: none;
-// }
-
-// .lte8 .wrapper:hover .tooltip {
-//   display: block;
-// }
-
-.wrapper{
+.wrapper {
   position: absolute;
   z-index: 100;
 }

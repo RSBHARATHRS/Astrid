@@ -167,27 +167,34 @@ export class AppComponent {
     }
   }
 
-  openInfo(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
-    this.dialog.open(InfoComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  }
-
-  openDialogAni(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100'): void {
-    this.dialog.open(SettingsComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  }
-
   openMicTestingTool(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(RecognitionTesterComponent, {
       width: '250px',
+      backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,
     });
   }
+
+  openSettingsDialog(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
+    this.dialog.open(SettingsComponent, {
+      width: '250px',
+      backdropClass: 'bg',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+  openInfo(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
+    this.dialog.open(InfoComponent, {
+      width: '250px',
+      backdropClass: 'bg',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+
+
+
 }

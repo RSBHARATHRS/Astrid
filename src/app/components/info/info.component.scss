@@ -21,31 +21,18 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;
 
   // background: transparent;
   // border: 1px solid var(--theme-bg-color);
   // backdrop-filter: blur(6px);
   // background-color:  var(--theme-bg-color);
   // opacity: 0.5;
-  button {
-    width: 60%;
-    padding: 10px;
-    margin: 10px;
+  .content-sec {
+    margin: 26px 0 26px 0;
   }
 }
 
-.gradient-bg {
-  // background: linear-gradient(180deg, #a89ee0, #3315da);
-  background-color: rgba(5, 92, 95, 0.6);
-  padding: 0.5rem 1.5rem;
-  transition: all 0.1s ease-out;
-  font-weight: 500;
-  font-size: 1.25rem;
-  border-radius: 10px;
-  transform: scale(1);
-  margin: 0 0 2rem 1rem;
-}
 
 ::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface {
   border-radius: 12px;

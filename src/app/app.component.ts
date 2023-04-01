@@ -167,9 +167,9 @@ export class AppComponent {
     }
   }
 
-  openMicTestingTool(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
+  openTestingTool(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(RecognitionTesterComponent, {
-      width: '250px',
+      // width: '250px',
       backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -178,7 +178,7 @@ export class AppComponent {
 
   openSettingsDialog(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(SettingsComponent, {
-      width: '250px',
+      // width: '250px',
       backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -187,7 +187,7 @@ export class AppComponent {
 
   openInfo(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(InfoComponent, {
-      width: '250px',
+      // width: '250px',
       backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,

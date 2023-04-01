@@ -53,9 +53,10 @@ export class DragToolComponent implements OnInit {
   }
 
   openMicTestingTool() {
-    const dialogRef = this.dialog.open(RecognitionTesterComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.openTestingToolEvent.emit();
+    // const dialogRef = this.dialog.open(RecognitionTesterComponent);
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 }

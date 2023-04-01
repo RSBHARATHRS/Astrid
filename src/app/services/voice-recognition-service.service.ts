@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Injectable, NgZone } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { supportedRegion } from '../models/supported-lang';
 
 declare var webkitSpeechRecognition: any;
 
@@ -22,22 +23,15 @@ export class VoiceRecognitionServiceService {
 
   constructor(private _ngZone: NgZone) {
     this.init();
+    this.settings.subscribe((setting) => {
+      this.init(setting?.subLang);
+    })
   }
 
-  init() {
+  init(lang?: string) {
     this.recognition.continuous = true;
     this.recognition.interimResults = true;
-    this.recognition.lang = 'en-US';
-    // this.recognition.addEventListener('result', (e: any) => {
-    //   const transcript = Array.from<any>(e.results)
-    //     .map((result) =>{
-    //       console.log(result, "result")
-    //       return  result[0].transcript
-    //     })
-    //     .join('');
-    //   this.tempWords = transcript;
-    //   console.log(transcript);
-    // });
+    this.recognition.lang = lang || 'en-US';
   }
 
   start() {
@@ -106,5 +100,9 @@ export class VoiceRecognitionServiceService {
   wordConcat() {
     this.text = this.text + ' ' + this.tempWords + '.';
     this.tempWords = '';
+  }
+
+  getLanguageRegionById(id: number): any[] {
+    return supportedRegion?.filter(langReg => langReg?.langId == id);
   }
 }

@@ -12,11 +12,14 @@ import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { createCustomElement } from '@angular/elements';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { RecognitionTesterComponent } from './components/recognition-tester/recognition-tester.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DragToolComponent,
+    RecognitionTesterComponent,
     SettingsComponent,
     InfoComponent,
     FormComponent
@@ -27,7 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     DragDropModule,
     FormsModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [],

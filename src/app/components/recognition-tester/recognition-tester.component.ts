@@ -1,7 +1,13 @@
-import { HostListener } from '@angular/core';
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { supportedLang, supportedRegion } from 'src/app/models/supported-lang';
 import { VoiceRecognitionServiceService } from 'src/app/services/voice-recognition-service.service';
+
+interface SettingsForm {
+  lang?: FormControl<string>;
+  subLang?: FormControl<string>;
+}
 
 @Component({
   selector: 'app-recognition-tester',
@@ -11,52 +17,29 @@ import { VoiceRecognitionServiceService } from 'src/app/services/voice-recogniti
 
 export class RecognitionTesterComponent {
 
-  boo = false;
-  speech: string = '';
+  speech = '';
   voice = ''
-  selectedId = '';
-  isVRStart: boolean = false;
+  isVRStarted: boolean = false;
+  supportedLanguage = supportedLang;
+  supportedRegion = supportedRegion;
 
-  @HostListener('window:click', ['$event'])
-  clickout(event: any) {
-    console.log(event, 'event12');
-    this.selectIdByEvent(event);
-  }
-
-  @HostListener('keyup', ['$event'])
-  onKeyDown(e: any) {
-    if ((e.shiftKey && e.keyCode == 9) || e.keyCode == 9) {
-      console.log('shift and tab');
-      this.selectIdByEvent(e);
-    } else if (e.keyCode == 27) {
-      this.isVRStart = !this.isVRStart;
-      this.isVRStart ? this.startService() : this.stopService();
-    }
-  }
+  settingsForm: FormGroup<SettingsForm> = new FormGroup<SettingsForm>({
+    lang: new FormControl('English', { nonNullable: true }),
+    subLang: new FormControl('', { nonNullable: true }),
+  });
 
   constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService,
     public dialogRef: MatDialogRef<RecognitionTesterComponent>,
     private cdRef: ChangeDetectorRef) {
   }
 
-  selectIdByEvent(event: any) {
-    let element = event.target || event.srcElement || event.currentTarget;
-    // Get the id of the source element
-    let elementId = element.id;
-    console.log(elementId, 'elementId');
-    if (elementId.startsWith('vr-ans')) {
-      this.selectedId = elementId;
-    }
-  }
-
   startService() {
-    // alert('hi');
-    this.isVRStart = true;
+    this.isVRStarted = true;
     this.recognize();
   }
 
   stopService() {
-    this.isVRStart = false;
+    this.isVRStarted = false;
     this.voiceRecognitionServiceService.stop();
   }
 
@@ -69,17 +52,9 @@ export class RecognitionTesterComponent {
         }
         else {
           this.speech = transcript;
-          console.log(this.selectedId, 'id12');
-          let test: any = document.getElementById(this.selectedId) as HTMLInputElement | null;
-          console.log(test, 'idtest');
-          test.value = transcript;
         }
         this.cdRef.detectChanges();
       });
-  }
-
-  clickAnswer() {
-
   }
 
 }

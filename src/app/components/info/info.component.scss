@@ -22,12 +22,6 @@
   align-items: center;
   flex-direction: column;
   padding: 20px;
-
-  // background: transparent;
-  // border: 1px solid var(--theme-bg-color);
-  // backdrop-filter: blur(6px);
-  // background-color:  var(--theme-bg-color);
-  // opacity: 0.5;
   .content-sec {
     margin: 26px 0 26px 0;
   }
@@ -150,7 +144,6 @@
 }
 
 .container .btn:nth-child(1)::before,
-/*chnage 1*/
 .container .btn:nth-child(1)::after {
   background: #ff1f71;
   box-shadow: 0 0 5px #ff1f71, 0 0 15px #ff1f71, 0 0 30px #ff1f71,
@@ -158,7 +151,6 @@
 }
 
 .container .btn:nth-child(2)::before,
-/* 2*/
 .container .btn:nth-child(2)::after {
   background: #2db2ff;
   box-shadow: 0 0 5px #2db2ff, 0 0 15px #2db2ff, 0 0 30px #2db2ff,
@@ -166,7 +158,6 @@
 }
 
 .container .btn:nth-child(3)::before,
-/* 3*/
 .container .btn:nth-child(3)::after {
   background: #1eff45;
   box-shadow: 0 0 5px #1eff45, 0 0 15px #1eff45, 0 0 30px #1eff45,

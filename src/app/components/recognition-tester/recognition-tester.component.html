@@ -4,13 +4,31 @@
       <h1>Voice recognition testing tool</h1>
     </div>
     <div class="controller-cnt">
-      <button style="margin: 10px;" (click)="startService()">Start</button>
-      <button style="margin: 10px;" (click)="stopService()">Stop</button>
+      <div class="preference">
+        <label for="lang" id="vr-Question-dropdown"><b>Language: </b></label>
+        <select id="vr-ans-dropdown" name="lang" formControlName="lang">
+          <option *ngFor="let lang of supportedLanguage" [value]="lang?.id">{{lang?.lang}}</option>
+        </select>
+      </div>
+
+      <div class="preference">
+        <label for="subLang" id="vr-dropdown"><b>Accuracy: </b></label>
+        <ng-container>
+          <select id="vr-ans-dropdown" name="subLang">
+            <option value="subLang" *ngFor="let subLang of supportedRegion">subLang</option>
+          </select>
+        </ng-container>
+      </div>
+      <img *ngIf="!isVRStarted" src="/assets/play.png" alt="start" (click)="startService()">
+      <img *ngIf="isVRStarted" src="/assets/stop.png" alt="stop" (click)="stopService()">
     </div>
     <div class="result-cnt">
-      <p class="speech">{{ speech}}</p>
+      <!-- <p class="speech">{{ speech}}</p>
       <hr>
-      <p class="voice">{{ voice }}</p>
+      <p class="voice">{{ voice }}</p> -->
+      <textarea class="speech" [value]="speech"></textarea>
+      <hr>
+      <textarea class="voice" [value]="voice"></textarea>
     </div>
     <div class="container">
       <div class="btn"><a href="javascript:void(0)" (click)="dialogRef.close()">Close</a></div>

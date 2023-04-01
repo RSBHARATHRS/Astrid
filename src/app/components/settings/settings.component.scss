@@ -11,6 +11,17 @@
       margin: 12px 0 12px 0;
       display: flex;
       justify-content: space-between;
+      .range-wrapper{
+        width: 100%;
+        min-width: 220px;
+        display: flex;
+        flex-direction: row;
+        b {
+          padding: 10px;
+          font-size: medium;
+          margin-bottom: 0;
+        }
+      }
       label {
         min-width: 160px;
       }

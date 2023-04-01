@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { debounceTime } from 'rxjs/operators';
@@ -14,6 +14,7 @@ interface SettingsForm {
   selector: 'app-recognition-tester',
   templateUrl: './recognition-tester.component.html',
   styleUrls: ['./recognition-tester.component.scss'],
+  // encapsulation: ViewEncapsulation.ShadowDom
 })
 
 export class RecognitionTesterComponent implements OnInit {
@@ -26,8 +27,8 @@ export class RecognitionTesterComponent implements OnInit {
   supportedRegion = supportedRegion;
 
   settingsForm: FormGroup<SettingsForm> = new FormGroup<SettingsForm>({
-    lang: new FormControl('English', { nonNullable: true, validators: [Validators.required] }),
-    subLang: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    lang: new FormControl('11', { nonNullable: true, validators: [Validators.required] }),
+    subLang: new FormControl('en-IN', { nonNullable: true, validators: [Validators.required] }),
   });
 
   constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService,

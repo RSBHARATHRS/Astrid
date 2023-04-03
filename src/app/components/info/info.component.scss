@@ -25,6 +25,7 @@
   .astrid{
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
     justify-content: space-between;
     max-width: 350px;
     img{
@@ -35,6 +36,9 @@
       height: 100px;
       background-color: grey;
       margin: 0 10px 0 10px;
+    }
+    .astrid-content{
+      max-width: 140px;
     }
   }
   .content-sec {

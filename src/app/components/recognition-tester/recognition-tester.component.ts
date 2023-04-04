@@ -43,28 +43,32 @@ export class RecognitionTesterComponent implements OnInit {
     this.settingsForm.controls.lang.valueChanges.subscribe((value) => {
       this.supportedRegion = this.voiceRecognitionServiceService.getLanguageRegionById(Number(value));
       this.settingsForm.controls.subLang.setValue(this.supportedRegion[0]?.code);
-
     });
+    this.settingsForm.valueChanges.subscribe(() => {
+      this.stopService()
+    })
   }
 
   startService() {
     this.isPlayClicked = true;
-    if(this.settingsForm.invalid)
+    if (this.settingsForm.invalid)
       return
     this.isVRStarted = true;
     this.updateSettings();
     this.recognize();
   }
 
+  stopService() {
+    if (this.isVRStarted) {
+      this.isVRStarted = false;
+      this.voiceRecognitionServiceService.stop();
+    }
+  }
+
   updateSettings() {
     this.voiceRecognitionServiceService.settings.next(this.settingsForm?.value);
     let size = localStorage.getItem('settings') ? JSON.parse(localStorage.getItem('settings')!)?.size : '';
     localStorage.setItem("settings", JSON.stringify({ size: size, ...this.settingsForm.value }));
-  }
-
-  stopService() {
-    this.isVRStarted = false;
-    this.voiceRecognitionServiceService.stop();
   }
 
   recognize() {
@@ -78,6 +82,11 @@ export class RecognitionTesterComponent implements OnInit {
         }
         this.cdRef.detectChanges();
       });
+  }
+
+  close() {
+    this.stopService();
+    this.dialogRef.close();
   }
 
 }

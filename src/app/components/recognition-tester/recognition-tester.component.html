@@ -2,7 +2,7 @@
   <div class="wrapper">
 
     <div class="header-cnt">
-      <h1>Voice recognition testing tool</h1>
+      <h1>Astrid</h1>
     </div>
 
     <div class="error-cnt">
@@ -28,8 +28,8 @@
         </div>
       </ng-container>
 
-      <img *ngIf="!isVRStarted" src="https://d2dcv6kjbpqcv3.cloudfront.net/play.png" alt="start" (click)="startService()">
-      <img *ngIf="isVRStarted" src="https://d2dcv6kjbpqcv3.cloudfront.net/stop.png" alt="stop" (click)="stopService()">
+      <img *ngIf="!isVRStarted" src="http://d2dcv6kjbpqcv3.cloudfront.net/assets/play.png" alt="start" (click)="startService()">
+      <img *ngIf="isVRStarted" src="assets/stop.png" alt="stop" (click)="stopService()">
     </div>
 
 
@@ -44,7 +44,7 @@
       <textarea class="voice" [value]="voice"></textarea>
     </div>
     <div class="container">
-      <div class="btn"><a href="javascript:void(0)" (click)="dialogRef.close()">Close</a></div>
+      <div class="btn"><a href="javascript:void(0)" (click)="close()">Close</a></div>
     </div>
   </div>
 </div>

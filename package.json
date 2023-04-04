@@ -1,5 +1,5 @@
 {
-  "name": "idp-speech-to-text",
+  "name": "astrid-tool",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,10 +9,10 @@
     "test": "ng test",
     "build:dev": "ng build --configuration develop --output-hashing=none",
     "build:stg": "ng build --configuration stage",
-    "concat:dev": "node concat-script.js idp-speech-to-text 070223 dev",
-    "build:element:dev": "ng build --configuration development --output-hashing=none && node concat-script.js idp-speech-to-text 01 dev",
-    "build:element:stg": "ng build --configuration stage --output-hashing=none && node concat-script.js idp-speech-to-text 01 stg",
-    "build:element:prod": "ng build --configuration production --output-hashing=none && node concat-script.js idp-speech-to-text"
+    "concat:dev": "node concat-script.js astrid-tool 070223 dev",
+    "build:element:dev": "ng build --configuration development --output-hashing=none && node concat-script.js astrid-tool 01 dev",
+    "build:element:stg": "ng build --configuration stage --output-hashing=none && node concat-script.js astrid-tool 01 stg",
+    "build:element:prod": "ng build --configuration production --output-hashing=none && node concat-script.js astrid-tool"
   },
   "private": true,
   "dependencies": {

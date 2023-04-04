@@ -30,7 +30,7 @@ export class AppComponent {
     }
   }
 
-  title = 'IDP-Speech-To-Text';
+  title = 'astrid-tool';
   boo = false;
   speech: string = '';
   voice = ''

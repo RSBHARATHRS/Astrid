@@ -2,23 +2,23 @@
   <div [style.width.px]="width + updatedValue" [style.height.px]="height + updatedValue" class="example-box wrapper drag"  cdkDrag>
     <div class="tooltip">
       <div class="start-stop">
-        <img *ngIf="!isVRRcord" src="/assets/play.png" alt="start" (click)="clickStart()">
-        <img *ngIf="isVRRcord" src="/assets/stop.png" alt="stop" (click)="clickStop()">
+        <img *ngIf="!isVRRcord" src="https://d2dcv6kjbpqcv3.cloudfront.net/play.png" alt="start" (click)="clickStart()">
+        <img *ngIf="isVRRcord" src="https://d2dcv6kjbpqcv3.cloudfront.net/stop.png" alt="stop" (click)="clickStop()">
       </div>
       <div class="mic-testing">
-        <img src="/assets/microphone.png" alt="mic-testing" (click)="openMicTestingTool()">
+        <img src="https://d2dcv6kjbpqcv3.cloudfront.net/microphone.png" alt="mic-testing" (click)="openMicTestingTool()">
       </div>
       <div class="settings">
-        <img src="/assets/setting.png" alt="settings" (click)="openSettings()">
+        <img src="https://d2dcv6kjbpqcv3.cloudfront.net/setting.png" alt="settings" (click)="openSettings()">
       </div>
       <div class="info">
-        <img src="/assets/info.png" alt="info" (click)="openInfo.emit()">
+        <img src="https://d2dcv6kjbpqcv3.cloudfront.net/info.png" alt="info" (click)="openInfo.emit()">
       </div>
     </div>
     <!-- trg icon -->
     <div class="trag-icon-cnt">
-      <img *ngIf="!isVRRcord" src="/assets/speech-icon.png">
-      <img *ngIf="isVRRcord" src="/assets/rec.png">
+      <img *ngIf="!isVRRcord" src="https://d2dcv6kjbpqcv3.cloudfront.net/speech-icon.png">
+      <img *ngIf="isVRRcord" src="https://d2dcv6kjbpqcv3.cloudfront.net/rec.png">
     </div>
   </div>
 </div>

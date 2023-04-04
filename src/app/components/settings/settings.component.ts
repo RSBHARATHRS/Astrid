@@ -17,8 +17,6 @@ interface SettingsForm {
 })
 export class SettingsComponent implements OnInit {
 
-  //https://medium.com/creative-technology-concepts-code/speech-recognition-and-translation-in-the-browser-960107f2fad2
-
   supportedLanguage = supportedLang;
   supportedRegion = supportedRegion;
   isSaveClicked: boolean = false;

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { supportedRegion } from '../models/supported-lang';
 
@@ -37,26 +37,16 @@ export class VoiceRecognitionServiceService {
   start() {
     this.isStoppedSpeechRecog = false;
     this.recognition.start();
-    console.log("Speech recognition started")
     this.recognition.addEventListener('end', () => {
-      if (this.isStoppedSpeechRecog) {
-        // this.recognition.stop();
-        console.log("End speech recognition")
-      } else {
-        this.wordConcat()
-        // this.recognition.start();
+      if (!this.isStoppedSpeechRecog) {
+        this.wordConcat();
       }
     });
   }
 
   getTranscript({ locale = 'en-US' }: { locale?: string } = {}): Observable<string> {
     return new Observable(observer => {
-      // this.recognition.continuous = true;
-      // this.recognition.interimResults = true;
-      // this.recognition.lang = locale;
       this.recognition.onresult = (speechRecognitionEvent: any) => {
-        console.log(speechRecognitionEvent, "Speech");
-        // return;
         var interim_transcript = '';
         for (var i = speechRecognitionEvent.resultIndex; i < speechRecognitionEvent.results.length; ++i) {
           if (speechRecognitionEvent.results[i].isFinal) {
@@ -92,9 +82,8 @@ export class VoiceRecognitionServiceService {
   stop() {
     this.isStoppedSpeechRecog = true;
     this.isStartedSpeechRecog = false;
-    this.wordConcat()
+    this.wordConcat();
     this.recognition.stop();
-    console.log("End speech recognition");
   }
 
   wordConcat() {

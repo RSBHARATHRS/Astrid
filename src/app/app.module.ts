@@ -41,7 +41,7 @@ import { RecognitionTesterComponent } from './components/recognition-tester/reco
 export class AppModule {
   constructor(private injector: Injector) {
     const customElement = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('voice-reg-tool', customElement);
+    customElements.define('astrid-tool', customElement);
   }
 
   ngDoBootstrap() {

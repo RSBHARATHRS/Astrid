@@ -11,7 +11,8 @@
 
     <div class="preference">
       <label for="lang" id="vr-Question-dropdown"><b>Icon size</b></label>
-      <div class="range-wrapper"><input type="range" id="icon_range" formControlName="size"><b>{{settingsForm.value.size}}</b></div>
+      <div class="range-wrapper"><input type="range" id="icon_range"
+          formControlName="size"><b>{{settingsForm.value.size}}</b></div>
     </div>
 
     <div class="preference">
@@ -25,7 +26,6 @@
       <ng-container *ngIf="settingsForm?.value?.lang">
         <label for="subLang" id="vr-dropdown"><b>Language region</b></label>
         <select id="vr-ans-dropdown" name="subLang" formControlName="subLang">
-          <!-- <option value="" default>Please select</option> -->
           <option *ngFor="let subLang of supportedRegion" [value]="subLang?.code">{{subLang?.display}}</option>
         </select>
       </ng-container>

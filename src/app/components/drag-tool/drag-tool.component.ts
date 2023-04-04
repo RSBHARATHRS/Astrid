@@ -3,7 +3,6 @@ import { Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { VoiceRecognitionServiceService } from 'src/app/services/voice-recognition-service.service';
-import { RecognitionTesterComponent } from '../recognition-tester/recognition-tester.component';
 
 @Component({
   selector: 'app-drag-tool',
@@ -54,9 +53,5 @@ export class DragToolComponent implements OnInit {
 
   openMicTestingTool() {
     this.openTestingToolEvent.emit();
-    // const dialogRef = this.dialog.open(RecognitionTesterComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
   }
 }

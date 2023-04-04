@@ -13,19 +13,16 @@ import { VoiceRecognitionServiceService } from './services/voice-recognition-ser
 
 export class AppComponent {
 
-  dragPosition = {x: 0, y: 0};
+  dragPosition = { x: 0, y: 0 };
 
   @HostListener('window:click', ['$event'])
   clickout(event: any) {
-    console.log('window:click :', event);
     this.selectIdByEvent(event);
   }
 
   @HostListener('document:keyup', ['$event'])
   onKeyDown(event: any) {
-    console.log("keyup: ", event)
     if ((event.shiftKey && event.keyCode == 9) || event.keyCode == 9) {
-      console.log('shift and tab');
       this.selectIdByEvent(event);
     } else if (event.keyCode == 27) { // 27 = Escape
       this.isVRStart = !this.isVRStart;
@@ -40,17 +37,13 @@ export class AppComponent {
   selectedId = '';
   isVRStart: boolean = false;
 
-  constructor(private _ngZone: NgZone,
-    public voiceRecognitionServiceService: VoiceRecognitionServiceService,
-    public dialog: MatDialog) {
-
-  }
+  constructor(public voiceRecognitionServiceService: VoiceRecognitionServiceService,
+    public dialog: MatDialog) { }
 
   selectIdByEvent(event: any) {
     let element = event.target || event.srcElement || event.currentTarget;
     // Get the id of the source element
     let elementId = element.id;
-    console.log("active element ID:", elementId);
     if (elementId.startsWith('vr-ans')) {
       this.selectedId = elementId;
     }
@@ -69,19 +62,15 @@ export class AppComponent {
   recognize() {
     this.voiceRecognitionServiceService.getTranscript()
       .subscribe(transcript => {
-        console.log(transcript, "res")
         if (transcript !== '' && this.voiceRecognitionServiceService.boo) {
           this.voice = this.voice + ' ' + transcript;
         }
         else {
           this.speech = transcript;
-          console.log(this.selectedId, 'selectedId');
           let inputElement: any = document.getElementById(this.selectedId) as HTMLInputElement | null;
-          console.log(inputElement?.parentElement.id, 'idtest');
           if (inputElement.type == "select-one") {
             this.selectDropDownValue(inputElement?.options, transcript?.toLocaleLowerCase())
           } else if (inputElement.type == "radio") {
-            console.log(inputElement.name, 'name12');
             this.selectRadioValue(inputElement.name, transcript?.toLocaleLowerCase());
           } else if (inputElement.type == 'checkbox') {
             let splitval = 'vr-div-' + this.selectedId.split('-')[2];
@@ -98,7 +87,6 @@ export class AppComponent {
 
   selectDateTime(value: any) {
     let splitvalue = value.split(' ');
-    console.log(splitvalue.length, 'length');
     if (splitvalue.length == 3) {
       let test: any = document.getElementById(this.selectedId) as HTMLInputElement | null;
       test.value = this.datetimeLocal(splitvalue[0] + '-' + splitvalue[1] + '-' + splitvalue[2]);
@@ -106,10 +94,8 @@ export class AppComponent {
   }
 
   datetimeLocal(datetime: any) {
-    console.log(datetime, 'datetime')
     const dt = new Date(datetime);
     dt.setMinutes(dt.getMinutes() - dt.getTimezoneOffset());
-    console.log(dt.toISOString().slice(0, 16), 'datetime123')
     return dt.toISOString().slice(0, 16);
   }
 
@@ -120,29 +106,21 @@ export class AppComponent {
     for (let i = 0; i < checkBoxes.length; i++) {
       let selector = 'label[for=' + checkBoxes[i].id + ']';
       let label: any = document.querySelector(selector) as HTMLInputElement | null;
-      // console.log(label.innerHTML,'innerHTML');
       let matchPer = stringSimilarity.compareTwoStrings(value, label.innerHTML?.toLocaleLowerCase());
-      console.log(label.innerHTML?.toLocaleLowerCase(), '-', value, '-', matchPer, 'txcont');
       if (matchPer >= 0.8) {
         let test: any = document.getElementById(checkBoxes[i].id) as HTMLInputElement | null;
-        console.log(test.checked, 'test.checked');
         test.checked = true;
       }
-      //var text = label.innerHTML;
-      // do stuff
     }
   }
 
   selectRadioValue(name: any, value: any) {
     let radios = document.getElementsByName(name);
     var stringSimilarity = require("string-similarity");
-    console.log(radios, 'radios');
     for (var i = 0; i < radios.length; i++) {
       var selector = 'label[for=' + radios[i].id + ']';
       var label: any = document.querySelector(selector) as HTMLInputElement | null;
-      // console.log(label.innerHTML,'innerHTML');
       let matchPer = stringSimilarity.compareTwoStrings(value, label.innerHTML?.toLocaleLowerCase());
-      console.log(label.innerHTML?.toLocaleLowerCase(), '-', value, '-', matchPer, 'txcont');
       if (matchPer >= 0.8) {
         let test: any = document.getElementById(radios[i].id) as HTMLInputElement | null;
         test.checked = true;
@@ -152,15 +130,10 @@ export class AppComponent {
 
   selectDropDownValue(options: any, value: any) {
     var stringSimilarity = require("string-similarity");
-
-    console.log(value, 'value123');
     for (var i = 0; i < options.length; i++) {
       let ele = options[i];
       let matchPer = stringSimilarity.compareTwoStrings(value, ele.textContent?.toLocaleLowerCase());
-      console.log(ele.textContent, '-', value, 'txcont');
-      console.log(matchPer, 'txvalue');
       if (matchPer >= 0.8) {
-        console.log(ele.value, 'txvalue123');
         let test: any = document.getElementById(this.selectedId) as HTMLInputElement | null;
         test.value = ele.value;
       }
@@ -169,7 +142,6 @@ export class AppComponent {
 
   openTestingTool(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(RecognitionTesterComponent, {
-      // width: '250px',
       backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -178,7 +150,6 @@ export class AppComponent {
 
   openSettingsDialog(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(SettingsComponent, {
-      // width: '250px',
       backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -187,14 +158,10 @@ export class AppComponent {
 
   openInfo(enterAnimationDuration: string = '100', exitAnimationDuration: string = '100') {
     this.dialog.open(InfoComponent, {
-      // width: '250px',
       backdropClass: 'bg',
       enterAnimationDuration,
       exitAnimationDuration,
     });
   }
-
-
-
 
 }

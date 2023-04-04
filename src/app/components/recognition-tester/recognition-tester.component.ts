@@ -1,7 +1,6 @@
-import { ChangeDetectorRef, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { debounceTime } from 'rxjs/operators';
 import { supportedLang, supportedRegion } from 'src/app/models/supported-lang';
 import { VoiceRecognitionServiceService } from 'src/app/services/voice-recognition-service.service';
 
@@ -14,7 +13,6 @@ interface SettingsForm {
   selector: 'app-recognition-tester',
   templateUrl: './recognition-tester.component.html',
   styleUrls: ['./recognition-tester.component.scss'],
-  // encapsulation: ViewEncapsulation.ShadowDom
 })
 
 export class RecognitionTesterComponent implements OnInit {
@@ -72,7 +70,6 @@ export class RecognitionTesterComponent implements OnInit {
   recognize() {
     this.voiceRecognitionServiceService.getTranscript()
       .subscribe(transcript => {
-        console.log(transcript, "res")
         if (transcript !== '' && this.voiceRecognitionServiceService.boo) {
           this.voice = this.voice + ' ' + transcript;
         }

@@ -77,6 +77,8 @@ export class AppComponent {
             this.selectCheckBoxValue(splitval, transcript?.toLocaleLowerCase());
           } else if (inputElement.type == 'datetime-local') {
             this.selectDateTime(transcript);
+          } else if (inputElement.type == 'email') {
+            inputElement.value = transcript?.toLocaleLowerCase()?.replace(/\s/g, "");
           }
           else {
             inputElement.value = transcript?.toLocaleLowerCase();

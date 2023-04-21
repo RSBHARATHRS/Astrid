@@ -1,5 +1,5 @@
 
-![Logo](/src/assets/.png)
+![Logo](/src/assets/play.png)
 
 
 # Astrid

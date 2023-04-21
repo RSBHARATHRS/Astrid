@@ -1,6 +1,6 @@
 
-![Logo](/src/assets/speech-icon.png)
-
+<!-- ![Logo](/src/assets/speech-icon.png) -->
+<img src="/src/assets/speech-icon.png"  width="300" height="300">
 
 # Astrid
 

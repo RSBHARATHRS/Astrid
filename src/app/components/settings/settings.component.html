@@ -1,0 +1,41 @@
+<div class="settings-cnt bg">
+  <div class="header-section">
+    <h2>Settings</h2>
+  </div>
+
+  <div class="error-cnt">
+    <p *ngIf="settingsForm.invalid && isSaveClicked">Please select a language region</p>
+  </div>
+
+  <form [formGroup]="settingsForm">
+
+    <div class="preference">
+      <label for="lang" id="vr-Question-dropdown"><b>Icon size</b></label>
+      <div class="range-wrapper"><input type="range" id="icon_range"
+          formControlName="size"><b>{{settingsForm.value.size}}</b></div>
+    </div>
+
+    <div class="preference">
+      <label for="lang" id="vr-Question-dropdown"><b>Language</b></label>
+      <select id="vr-ans-dropdown" name="lang" formControlName="lang">
+        <option *ngFor="let lang of supportedLanguage" [value]="lang?.id">{{lang?.lang}}</option>
+      </select>
+    </div>
+
+    <div class="preference">
+      <ng-container *ngIf="settingsForm?.value?.lang">
+        <label for="subLang" id="vr-dropdown"><b>Language region</b></label>
+        <select id="vr-ans-dropdown" name="subLang" formControlName="subLang">
+          <option *ngFor="let subLang of supportedRegion" [value]="subLang?.code">{{subLang?.display}}</option>
+        </select>
+      </ng-container>
+    </div>
+
+  </form>
+
+  <div class="container">
+    <div class="btn"><a href="javascript:void(0)" (click)="reset()">Reset</a></div>
+    <div class="btn"><a href="javascript:void(0)" (click)="saveSettings()">Save</a></div>
+    <div class="btn"><a href="javascript:void(0)" (click)="dialogRef.close()">Close</a></div>
+  </div>
+</div>

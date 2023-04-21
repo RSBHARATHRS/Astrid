@@ -1,27 +1,55 @@
-# IDPSpeechToText
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+<!-- ![Logo](/src/assets/speech-icon.png) -->
+<img src="/src/assets/speech-icon.png"  width="300" height="300">
 
-## Development server
+# Astrid
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Accurate Speech to Text Recognition Intelligent Device
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Introduction
 
-## Build
+The transcriptive model helps to recognize human voice command as input and convert it to text. With the help of Astrid, we can able to fill out the forms containing different types of input fields. People who try to register with our platform once they log in, just answer the questions available on our registration form orally, Our recognition model will convert speech to text without any time delay. The model provides the feature to select the options that are available on the different types of fields without any click. Our recognition model will work flexibly to provide good outcomes in a more efficient manner.
+## Run Locally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Clone the project
 
-## Running unit tests
+```bash
+  git clone https://github.com/RSBHARATHRS/Astrid.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Go to the project directory
 
-## Running end-to-end tests
+```bash
+  cd Astrid
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install dependencies
 
-## Further help
+```bash
+  npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Start the server
+
+```bash
+  npm run start
+```
+
+
+## Documentation
+
+[Astrid](https://rsbharathrs.github.io/astrid-website/#)
+
+
+## 🚀 About Me
+I'm a full stack developer...
+
+
+## Screenshots
+
+![App Screenshot](/screenshots/astrid.png)
+![App Screenshot](/screenshots/settings.png)
+![App Screenshot](/screenshots/test.png)
+![App Screenshot](/screenshots/info.png)
+

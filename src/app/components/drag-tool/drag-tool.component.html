@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div [style.width.px]="width + updatedValue" [style.height.px]="height + updatedValue" class="example-box wrapper drag"  cdkDrag>
+    <div class="tooltip">
+      <div class="start-stop">
+        <img *ngIf="!isVRRcord" src="http://d2dcv6kjbpqcv3.cloudfront.net/image/play.png" alt="start" (click)="clickStart()">
+        <img *ngIf="isVRRcord" src="http://d2dcv6kjbpqcv3.cloudfront.net/image/stop.png" alt="stop" (click)="clickStop()">
+      </div>
+      <div class="mic-testing">
+        <img src="http://d2dcv6kjbpqcv3.cloudfront.net/image/microphone.png" alt="mic-testing" (click)="openMicTestingTool()">
+      </div>
+      <div class="settings">
+        <img src="http://d2dcv6kjbpqcv3.cloudfront.net/image/setting.png" alt="settings" (click)="openSettings()">
+      </div>
+      <div class="info">
+        <img src="http://d2dcv6kjbpqcv3.cloudfront.net/image/info.png" alt="info" (click)="openInfo.emit()">
+      </div>
+    </div>
+    <!-- trg icon -->
+    <div class="trag-icon-cnt">
+      <img *ngIf="!isVRRcord" src="http://d2dcv6kjbpqcv3.cloudfront.net/image/speech-icon.png">
+      <img *ngIf="isVRRcord" src="http://d2dcv6kjbpqcv3.cloudfront.net/image/rec.png">
+    </div>
+  </div>
+</div>
+

@@ -1,5 +1,5 @@
 
-![Logo](/src/assets/speech-icon.png.png)
+![Logo](/src/assets/speech-icon.png)
 
 
 # Astrid

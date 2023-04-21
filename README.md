@@ -49,7 +49,7 @@ I'm a full stack developer...
 ## Screenshots
 
 ![App Screenshot](/screenshots/astrid.png)
-![App Screenshot](/screenshots/test.png)
 ![App Screenshot](/screenshots/settings.png)
+![App Screenshot](/screenshots/test.png)
 ![App Screenshot](/screenshots/info.png)
 

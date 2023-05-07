@@ -43,10 +43,14 @@ export class AppComponent {
   selectIdByEvent(event: any) {
     let element = event.target || event.srcElement || event.currentTarget;
     // Get the id of the source element
+    console.log(element, "element");
     let elementId = element.id;
-    if (elementId.startsWith('vr-ans')) {
+    if(element instanceof HTMLInputElement || element instanceof HTMLSelectElement || element instanceof HTMLTextAreaElement) {
       this.selectedId = elementId;
     }
+    // if (elementId.startsWith('vr-ans')) {
+    //   this.selectedId = elementId;
+    // }
   }
 
   startService() {
